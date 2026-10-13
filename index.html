@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静岡トランポリンクラブ｜3歳〜大人まで通えるトランポリン専門教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1A7FD4;
+      --blue-lt: #E8F4FD;
+      --yellow:  #FFD633;
+      --orange:  #FF6B35;
+      --white:   #FFFFFF;
+      --text:    #1A2A3A;
+      --muted:   #557089;
+      --radius:  16px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--yellow);
+    }
+    .site-header .logo a {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .site-header .logo a:hover { text-decoration: underline; }
+    .header-cta a {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .header-cta a:hover { opacity: 0.88; }
+
+    /* ── HERO IMAGE ── */
+    .hero-img-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: var(--blue-lt);
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ── HERO TEXT ── */
+    .hero-text {
+      background: linear-gradient(160deg, #1A7FD4 0%, #0D5FA8 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 52px 20px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      top: -80px; right: -80px;
+    }
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,214,51,0.12);
+      bottom: -60px; left: -40px;
+    }
+    .hero-text .tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .hero-text h1 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .hero-text p {
+      font-size: 1rem;
+      opacity: 0.92;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .btn-trial {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      transition: transform 0.15s;
+    }
+    .btn-trial:hover { transform: translateY(-2px); }
+    .btn-trial small { display: block; font-size: 0.7rem; font-weight: 400; margin-top: 2px; }
+
+    /* ── WAVE DIVIDER ── */
+    .wave {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave svg { display: block; }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 56px 20px; }
+    .section-inner { max-width: 720px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .section-title span {
+      display: inline-block;
+      border-bottom: 4px solid var(--yellow);
+      padding-bottom: 4px;
+    }
+
+    /* ── RECOMMEND (イチオシ) ── */
+    .recommend { background: var(--blue-lt); }
+    .rec-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .rec-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border-top: 5px solid var(--blue);
+    }
+    .rec-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+    .rec-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+    .rec-card p { font-size: 0.92rem; color: var(--muted); }
+
+    /* ── TRIAL ── */
+    .trial { background: var(--white); text-align: center; }
+    .trial-box {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF9A5C 100%);
+      border-radius: 20px;
+      padding: 40px 28px;
+      color: var(--white);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .trial-box .price {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 12px 0 6px;
+    }
+    .trial-box .price small { font-size: 1.2rem; }
+    .trial-box p { font-size: 0.9rem; opacity: 0.92; margin-bottom: 24px; }
+    .btn-mail {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+    .btn-mail:hover { opacity: 0.88; }
+
+    /* ── STRENGTH ── */
+    .strength { background: #F9FBFF; }
+    .str-list { display: grid; gap: 16px; }
+    .str-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      border-left: 5px solid var(--yellow);
+    }
+    .str-item .num {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+      min-width: 36px;
+    }
+    .str-item h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; }
+    .str-item p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── COMING SOON ── */
+    .coming { background: var(--blue-lt); text-align: center; }
+    .coming-box {
+      display: inline-block;
+      background: var(--white);
+      border: 2px dashed var(--blue);
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      max-width: 480px;
+    }
+    .coming-box .badge {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .coming-box h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .coming-box p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── REVIEW ── */
+    .review { background: var(--white); }
+    .review-cards { display: grid; gap: 20px; }
+    .review-card {
+      background: var(--blue-lt);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+    }
+    .stars { color: #FFD633; font-size: 1.1rem; margin-bottom: 10px; }
+    .review-card p { font-size: 0.92rem; color: var(--text); line-height: 1.75; }
+
+    /* ── INFO ── */
+    .info { background: #F9FBFF; }
+    .info-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .info-table th, .info-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #D6E8F5;
+      text-align: left;
+      vertical-align: top;
+    }
+    .info-table th {
+      color: var(--blue);
+      font-weight: 700;
+      width: 36%;
+      white-space: nowrap;
+    }
+    .info-table td a { color: var(--blue); }
+
+    /* ── MAP ── */
+    .map-section { background: var(--white); padding: 56px 20px; }
+    .map-wrap { max-width: 720px; margin: 0 auto; }
+    .map-wrap h2 { text-align: center; margin-bottom: 24px; }
+    .map-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 4/3;
+    }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; }
+    .map-btn-wrap { text-align: center; margin-top: 16px; }
+    .btn-map {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+    .btn-map:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #0D2D4A;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 44px 20px 32px;
+    }
+    .site-footer .footer-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-links { margin-bottom: 12px; }
+    .footer-links a {
+      color: #7AC4F5;
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin: 0 10px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+    .site-footer small { font-size: 0.75rem; opacity: 0.55; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .site-header { flex-wrap: wrap; gap: 10px; }
+      .rec-cards { grid-template-columns: 1fr; }
+      .info-table th { width: 42%; }
+      .trial-box { padding: 32px 20px; }
+      .trial-box .price { font-size: 2.4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-trial, .btn-mail { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <div class="logo">
+    <a href="http://shizuoka-trampoline.jp/" target="_blank" rel="noopener">静岡トランポリンクラブ</a>
+  </div>
+  <div class="header-cta">
+    <a href="mailto:shizuoka.trampoline@gmail.com?subject=体験レッスン申込み">体験レッスン 1,000円</a>
+  </div>
+</header>
+
+<!-- ── HERO IMAGE ── -->
+<div class="hero-img-wrap">
+  <img src="images/hero320.jpg" alt="静岡トランポリンクラブ ヒーロー画像">
+</div>
+
+<!-- ── HERO TEXT ── -->
+<div class="hero-text">
+  <p class="tag">🎉 3歳から大人まで通えるトランポリン専門教室</p>
+  <h1>ジャンプが、<em>チカラ</em>になる。<br>体幹・バランス・空中感覚を<br>楽しく育てよう！</h1>
+  <p>競技用設備と経験豊富なコーチ陣が、あなたのペースに合わせて丁寧にサポートします。</p>
+  <a href="mailto:shizuoka.trampoline@gmail.com?subject=体験レッスン申込み" class="btn-trial">
+    まずは体験レッスンへ
+    <small>初回 1,000円 ／ メールで気軽に申込み</small>
+  </a>
+</div>
+
+<!-- ── WAVE ── -->
+<div class="wave">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,24 C360,48 1080,0 1440,24 L1440,0 L0,0 Z" fill="#0D5FA8"/>
+  </svg>
+</div>
+
+<!-- ── イチオシ（RECOMMEND） ── -->
+<section class="recommend">
+  <div class="section-inner">
+    <h2 class="section-title"><span>🌟 静岡トランポリンクラブの魅力</span></h2>
+    <div class="rec-cards">
+      <div class="rec-card">
+        <div class="icon">🧒</div>
+        <h3>幅広い対象年齢</h3>
+        <p>3歳の幼児から大人まで、年齢を問わず通えます。幼児・小学生・中学生〜大人（Openクラス）と、ライフスタイルに合わせたクラスが揃っています。</p>
+      </div>
+      <div class="rec-card">
+        <div class="icon">🏋️</div>
+        <h3>抜群の運動効果</h3>
+        <p>ジャンプを繰り返すことで、空中感覚・体幹・バランス感覚を自然に養えます。あらゆるスポーツの土台づくりにも最適です。</p>
+      </div>
+      <div class="rec-card">
+        <div class="icon">🎯</div>
+        <h3>段階的な丁寧な指導</h3>
+        <p>トランポリンの技術を、それぞれの目的に合わせて練習できます。</p>
+      </div>
+      <div class="rec-card">
+        <div class="icon">🏟️</div>
+        <h3>本格的な競技用設備</h3>
+        <p>競技用トランポリンを完備。初心者から選手レベルまで、本格的な練習環境で取り組めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 体験レッスン ── -->
+<section class="trial">
+  <div class="section-inner">
+    <h2 class="section-title"><span>🎁 体験レッスン受付中</span></h2>
+    <div class="trial-box">
+      <p>まずは実際に試してみよう！</p>
+      <div class="price"><small>¥</small>1,000<small>（税込）</small></div>
+      <p>初回体験レッスン<br>気軽にメールでお申し込みいただけます</p>
+      <a href="mailto:shizuoka.trampoline@gmail.com?subject=体験レッスン申込み&body=お名前：%0A年齢：%0Aご希望日時：%0Aご質問など：" class="btn-mail">
+        ✉️ 体験レッスンを申し込む
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 強み ── -->
+<section class="strength">
+  <div class="section-inner">
+    <h2 class="section-title"><span>💪 選ばれる3つの理由</span></h2>
+    <div class="str-list">
+      <div class="str-item">
+        <div class="num">1</div>
+        <div>
+          <h3>本格的な設備</h3>
+          <p>競技用トランポリンを完備しており、初心者から選手レベルまで本格的な練習が可能です。</p>
+        </div>
+      </div>
+      <div class="str-item">
+        <div class="num">2</div>
+        <div>
+          <h3>幅広い対象層</h3>
+          <p>幼児・小学生から大人まで、運動能力の向上や健康維持など目的に合わせて通えます。</p>
+        </div>
+      </div>
+      <div class="str-item">
+        <div class="num">3</div>
+        <div>
+          <h3>専門的な指導</h3>
+          <p>経験豊富なコーチ陣から、アクロバットや専門技術の直接指導が受けられます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── クチコミ ── -->
+<section class="review">
+  <div class="section-inner">
+    <h2 class="section-title"><span>💬 みんなの声</span></h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>体幹を鍛えるのに適してるトランポリン。我が家の娘もお世話になりました。息子さんもオリンピック目指して頑張ってますね。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 準備中サービス ── -->
+<section class="coming">
+  <div class="section-inner">
+    <h2 class="section-title"><span>📢 近日公開予定</span></h2>
+    <div class="coming-box">
+      <span class="badge">COMING SOON</span>
+      <h3>スペースレンタルサービス</h3>
+      <p>空き時間に練習スペースを貸し出す新サービスを準備中です。詳細はお問い合わせください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 店舗情報 ── -->
+<section class="info">
+  <div class="section-inner">
+    <h2 class="section-title"><span>📍 教室情報</span></h2>
+    <table class="info-table">
+      <tr>
+        <th>教室名</th>
+        <td>静岡トランポリンクラブ</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>〒421-0113 静岡県静岡市駿河区下川原３丁目１９−３５</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><a href="tel:0542597566">054-259-7566</a></td>
+      </tr>
+      <tr>
+        <th>メール</th>
+        <td><a href="mailto:shizuoka.trampoline@gmail.com">shizuoka.trampoline@gmail.com</a></td>
+      </tr>
+      <tr>
+        <th>公式サイト</th>
+        <td><a href="http://shizuoka-trampoline.jp/" target="_blank" rel="noopener">http://shizuoka-trampoline.jp/</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ── MAP ── -->
+<div class="map-section">
+  <div class="map-wrap">
+    <h2 class="section-title"><span>🗺️ アクセス</span></h2>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.758771840822!2d138.370888!3d34.9375864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a49b1999f31bd%3A0x6a8d6166b383f51f!2z6Z2Z5bKh44OI44Op44Oz44Od44Oq44Oz44Kv44Op44OW!5e0!3m2!1sja!2sjp!4v1791261830004!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="map-btn-wrap">
+      <a href="https://www.google.com/maps/place/%E9%9D%99%E5%B2%A1%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E3%82%AF%E3%83%A9%E3%83%96/@34.9375864,138.370888,17z/data=!3m1!4b1!4m6!3m5!1s0x601a49b1999f31bd:0x6a8d6166b383f51f!8m2!3d34.9375864!4d138.370888!16s%2Fg%2F1tp_6g0c?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-map">
+        📍 Googleマップで見る
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-name">静岡トランポリンクラブ</div>
+  <div class="footer-links">
+    <a href="http://shizuoka-trampoline.jp/" target="_blank" rel="noopener">公式サイト</a>
+    <a href="tel:0542597566">054-259-7566</a>
+    <a href="mailto:shizuoka.trampoline@gmail.com">メールで問い合わせ</a>
+  </div>
+  <small>&copy; 静岡トランポリンクラブ All Rights Reserved.</small>
+</footer>
+
+</body>
+</html>
